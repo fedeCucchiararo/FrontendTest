@@ -1,0 +1,158 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: sans-serif;
+}
+
+.search__container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  align-items: center;
+  display: flex;
+  background-color: #f0f0f0;
+}
+
+.search__main {
+  background-color: white;
+  width: 75%;
+  margin: auto;
+  position: relative;
+  border-radius: 15px;
+  box-shadow: 5px 10px 45px grey;
+  padding: 28px;
+  min-width: 250px;
+  max-height: 60vh;
+}
+
+.search__form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
+.search__input {
+  border: 1px solid lightgrey;
+  border-radius: 4px;
+  padding: 5px 10px;
+  text-align: left;
+  cursor: pointer;
+  user-select: none;
+  height: 20px;
+  font-weight: 500;
+  width: 100%;
+  font-size: 12px;
+  margin-right: 10px;
+}
+
+.search__button {
+  cursor: pointer;
+  padding: 7px 10px;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  background-color: white;
+  font-weight: 700;
+  background-color: #f0f0f0;
+  font-size: 13px;
+}
+
+.avatar {
+  background-size: contain;
+  background-repeat: no-repeat;
+  min-width: 75px;
+  border-radius: 3px;
+}
+
+#search-result__head {
+  display: flex;
+  padding: 13px 0px;
+}
+
+#search-result__body {
+}
+
+#user-info-container {
+  height: 75px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 14px;
+}
+
+#user-info-container__username {
+  font-size: 13px;
+  font-style: italic;
+}
+
+#user-info-container__name {
+  font-size: 32px;
+  font-weight: 600;
+  margin: 2px 0px;
+  overflow: scroll;
+}
+
+#user-info-container__bio {
+  font-size: 13px;
+}
+
+#search-result__reposTitle {
+  font-size: 16px;
+  border-bottom: 2px solid black;
+  padding: 10px 0px;
+}
+
+#repos-list {
+  max-height: 35vh;
+  overflow: scroll;
+}
+
+li {
+  display: flex;
+  list-style-type: none;
+  border-top: 1px solid lightgrey;
+  padding: 15px;
+  font-size: 17px;
+  font-weight: 600;
+  align-items: baseline;
+}
+
+li:first-child {
+  border-top: none;
+}
+
+.starIcon {
+  height: 13px;
+  width: 13px;
+}
+
+.forkIcon {
+  height: 15px;
+  width: 10px;
+}
+
+#liContent {
+  display: flex;
+  align-items: baseline;
+  font-size: 16px;
+}
+
+#error {
+  font-size: 13px;
+  border: 1px solid #d2b7b7;
+  background-color: #f9dede;
+  color: #a95d45;
+  padding: 16px;
+  font-weight: 600;
+  margin-top: 12px;
+  border-radius: 4px;
+}
