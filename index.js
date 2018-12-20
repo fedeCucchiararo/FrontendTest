@@ -3,22 +3,11 @@ let form = document.getElementById("search-form");
 let searchResult = document.getElementById("search-result");
 let userRepos;
 
-const displayError = () => {
-  let errorContainer = document.createElement("div");
-  errorContainer.setAttribute("id", "error");
-  errorContainer.innerHTML = "Does not exist";
-  searchResult.appendChild(errorContainer);
-};
-
-form.addEventListener("submit", async event => {
+form.addEventListener("submit", event => {
   event.preventDefault();
 
   // remove previous results
-  if (searchResult.firstChild) {
-    while (searchResult.firstChild) {
-      searchResult.removeChild(searchResult.firstChild);
-    }
-  }
+  DOMService.cleanSearchResults()
 
   // it will contain the url to later get the user repositories
   let repos_url, avatar_url, login, name, bio;
@@ -26,12 +15,11 @@ form.addEventListener("submit", async event => {
   // get the input value to perform the fetch
   let search_query = document.getElementById("search-input").value;
 
-  
-  logic
+  githubService
     .searchUser(search_query)
     .then(result => ({ repos_url, avatar_url, login, name, bio } = result))
     .then(async () => {
-      userRepos = await logic.getUserRepos(repos_url);
+      userRepos = await githubService.getUserRepos(repos_url);
       // ul that will contain li elements for every repo
       let ul = document.createElement("ul");
       ul.setAttribute("id", "repos-list");
@@ -101,5 +89,5 @@ form.addEventListener("submit", async event => {
       searchResult.appendChild(head);
       searchResult.appendChild(body);
     })
-    .catch(err => displayError());
+    .catch(error => githubService.userErrorHandler(error));
 });
