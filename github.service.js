@@ -1,30 +1,20 @@
 const githubService = {
-  url: "https://api.github.com",
+  _url: "https://api.github.com",
 
-  searchUser(query) {
-    return fetch(`${this.url}/users/${query}`, {
+  async searchUser(query) {
+    return fetch(`${this._url}/users/${query}`, {
       method: "GET"
     })
-      .then(response => this.userResponseHandler(response))
-      .catch(error => this.userErrorHandler(error));
+      .then(response => response.json())
+      .then(response => {
+        if (response.message === "Not Found") throw Error(response.message);
+        return response;
+      });
   },
 
-  userResponseHandler(response) {
-    response = response.json();
-    if (response.message === "Not Found") throw Error(response.message);
-    return response;
-  },
-
-  userErrorHandler(error) {
-    let errorContainer = document.createElement("div");
-    errorContainer.setAttribute("id", "error");
-    errorContainer.innerHTML = "Does not exist";
-    searchResult.appendChild(errorContainer);
-  },
-
-  getUserRepos(url) {
-    return fetch(url, {
+  getUserRepos(repos_url) {
+    return fetch(repos_url, {
       method: "GET"
-    }).then(result => result.json());
+    }).then(response => response.json());
   }
 };
