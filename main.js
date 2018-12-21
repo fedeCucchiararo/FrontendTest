@@ -1,15 +1,14 @@
+/** get form element */
 let form = document.getElementById("search-form");
 
+/** get element into which results will be rendered */
 let searchResult = document.getElementById("search-result");
-let userRepos;
 
 form.addEventListener("submit", event => {
   event.preventDefault();
 
   // remove previous results
   DOMService.cleanSearchResults();
-
-  let repos_url, avatar_url, login, name, bio;
 
   // get the input value to perform the fetch
   let search_query = document.getElementById("search-input").value;
