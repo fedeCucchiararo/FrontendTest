@@ -4,8 +4,14 @@
 
 1. Launch the web application, for example with:
 
+Unix:
 ```bash
 $ python -m SimpleHTTPServer 1337
+```
+
+Windows:
+```bash
+$ python -m http.server 1337
 ```
 
 2. Open the browser with http://localhost:1337/
