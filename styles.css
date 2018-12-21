@@ -85,6 +85,8 @@
   display: flex;
   flex-direction: column;
   margin-left: 14px;
+  max-height: 75px;
+  overflow: scroll;
 }
 
 #user-info-container__username {
